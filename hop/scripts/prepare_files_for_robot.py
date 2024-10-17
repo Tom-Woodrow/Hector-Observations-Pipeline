@@ -293,7 +293,8 @@ def apply_corrections(
     if apply_barrel_rotation_to_all_magnets:
         # overall_barrel_rotation_value = 0.24
         # overall_barrel_rotation_value = 0.12  # Orientation of the pick arm to the robot axis (degrees). Changed on September 28th 2023 to be 0.12 degrees after robot re-alignment
-        overall_barrel_rotation_value = 0.034  # Orientation of the pick arm to the robot axis (degrees). Changed on April 2024 to be 0.034 degrees after robot re-alignment 
+        # overall_barrel_rotation_value = 0.034  # Orientation of the pick arm to the robot axis (degrees). Changed on April 2024 to be 0.034 degrees after robot re-alignment 
+        overall_barrel_rotation_value = 0.20  # Orientation of the pick arm to the robot axis (degrees). Changed on Oct 2024 to be 0.20 degrees after robot re-alignment 
         print(
             f"\tApplying a {overall_barrel_rotation_value} degree rotation to every magnet (due to the overall alignment of the robot barrel). Sign is {barrel_rotation_sign.upper()}"
         )
