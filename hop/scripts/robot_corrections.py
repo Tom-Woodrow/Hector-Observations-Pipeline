@@ -42,12 +42,16 @@ def pick_up_arm_rotation_correction(
     #d = (
     #    factor * 1 * 0.001
     #)  # distance from center of pick up arm to center of rotation in [um]. Changed on September 28th 2023 to be 1 micron after Robot Realignment
+    #d = (
+    #    factor * 7 * 0.001
+    #)  # distance from center of pick up arm to center of rotation in [um]. Changed on April 2024 to be 7 micron after Robot Realignment
     d = (
-        factor * 7 * 0.001
-    )  # distance from center of pick up arm to center of rotation in [um]. Changed on April 2024 to be 7 micron after Robot Realignment
+        factor * 3.5 * 0.001
+    )  # distance from center of pick up arm to center of rotation in [um]. Changed on Oct 2024 to be 3.5 micron after Robot Realignment
 
-    # ang0 = 20  # when the robot is at 0deg, it is actually 20 deg from the +x axis. The rotation direction is clockwise
-    ang0 = 90  # changed on April 2024
+    # ang0 = 20  # when the pickup arm is rotated to give the maximum shift above, the rotation axis is actually ang0 deg from the +x axis. The rotation direction is clockwise
+    #ang0 = 90  # changed on April 2024
+    ang0 = 180  # changed on Oct 2024
     theta = np.radians(rot_platePlacing - ang0)
 
     robot_centre_x_new = robot_centre_x - d * np.cos(theta)
