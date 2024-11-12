@@ -75,7 +75,7 @@ def correct_parking_positions_file(
     df = file_functions.write_standard_parking_positions_file(df, output_file)
 
     if verbose:
-        print(f"\tOutput file: {output_file}")
+        print(f"\t********** Output file: {output_file} **********")
 
     return df, output_file
 
@@ -157,7 +157,7 @@ def correct_robot_file(
     df, output_file = file_functions.write_standard_robot_file(df, filename, header)
 
     if verbose:
-        print(f"\tOutput file: {output_file}")
+        print(f"\t********** Output file: {output_file} **********")
 
     return df
 
