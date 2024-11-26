@@ -68,14 +68,14 @@ def correct_parking_positions_file(
 
     # Now write the parking positions file out in the correct format
     # We want to keep the same long string of numbers from the filename of the Robot Shifts file
-    fname = Path(filename.replace("_211116-z25.7", ""))
-
+    #fname = Path(filename.replace("_211116-z25.7", ""))
+    fname = Path(filename.replace("_211116-z25.630", ""))
     metrology_date = Path(robot_shifts_file).expanduser().stem.split("_")[-1]
     output_file = fname.parent / (fname.stem + f"_{metrology_date}.csv")
     df = file_functions.write_standard_parking_positions_file(df, output_file)
 
     if verbose:
-        print(f"\t********** Output file: {output_file} **********")
+        print(f"\t*********** Output file: {output_file} *************")
 
     return df, output_file
 
@@ -157,7 +157,7 @@ def correct_robot_file(
     df, output_file = file_functions.write_standard_robot_file(df, filename, header)
 
     if verbose:
-        print(f"\t********** Output file: {output_file} **********")
+        print(f"\t************** Output file: {output_file} **************")
 
     return df
 
@@ -294,7 +294,7 @@ def apply_corrections(
         # overall_barrel_rotation_value = 0.24
         # overall_barrel_rotation_value = 0.12  # Orientation of the pick arm to the robot axis (degrees). Changed on September 28th 2023 to be 0.12 degrees after robot re-alignment
         # overall_barrel_rotation_value = 0.034  # Orientation of the pick arm to the robot axis (degrees). Changed on April 2024 to be 0.034 degrees after robot re-alignment 
-        overall_barrel_rotation_value = 0.20  # Orientation of the pick arm to the robot axis (degrees). Changed on Oct 2024 to be 0.20 degrees after robot re-alignment 
+        overall_barrel_rotation_value = 0.20  # Orientation of the pick arm to the robot axis (degrees). Changed on Oct 2024 to be 0.034 degrees after robot re-alignment 
         print(
             f"\tApplying a {overall_barrel_rotation_value} degree rotation to every magnet (due to the overall alignment of the robot barrel). Sign is {barrel_rotation_sign.upper()}"
         )
@@ -465,10 +465,13 @@ if __name__ == "__main__":
     verbose = not args.silent
 
     # parking_positions_filename = "/Users/samvaughan/Science/Hector/HectorObservationPipeline/tests/data/robot_corrections_files/ParkingPosns_211116-z25.7_final.csv"
+    #parking_positions_filename = (
+    #   r"Z:\Robot_tile_files\ParkingPosns_211116-z25.7_final.csv"
+    #)
     parking_positions_filename = (
-        r"Z:\Robot_tile_files\ParkingPosns_211116-z25.7_final.csv"
+        r"Z:\Robot_tile_files\ParkingPosns_211116-z25.630_final.csv"
     )
-
+    
     """
     Check to see whether the file we're going reading in ends with "CorrectionsApplied". If so, STOP! This is a very easy error to make (especially when unconfiguring) but will lead to Very Bad Things happening (i.e. the robot might crash). Raise a NameError if this is the case.
     """
