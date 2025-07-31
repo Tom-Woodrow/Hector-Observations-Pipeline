@@ -70,7 +70,8 @@ def correct_parking_positions_file(
     # We want to keep the same long string of numbers from the filename of the Robot Shifts file
     #fname = Path(filename.replace("_211116-z25.7", ""))
     #fname = Path(filename.replace("_211116-z25.630", ""))
-    fname = Path(filename.replace("_211116-z25.620", ""))
+    #fname = Path(filename.replace("_211116-z25.620", ""))
+    fname = Path(filename.replace("_211116-z25.570", ""))
     metrology_date = Path(robot_shifts_file).expanduser().stem.split("_")[-1]
     output_file = fname.parent / (fname.stem + f"_{metrology_date}.csv")
     df = file_functions.write_standard_parking_positions_file(df, output_file)
@@ -473,8 +474,11 @@ if __name__ == "__main__":
     #parking_positions_filename = (
     #    r"Z:\Robot_tile_files\ParkingPosns_211116-z25.630_final.csv"
     #)
+    #parking_positions_filename = (
+    #    r"Z:\Robot_tile_files\ParkingPosns_211116-z25.620_final.csv"
+    #)
     parking_positions_filename = (
-        r"Z:\Robot_tile_files\ParkingPosns_211116-z25.620_final.csv"
+        r"Z:\Robot_tile_files\ParkingPosns_211116-z25.570_final.csv"
     )
     """
     Check to see whether the file we're going reading in ends with "CorrectionsApplied". If so, STOP! This is a very easy error to make (especially when unconfiguring) but will lead to Very Bad Things happening (i.e. the robot might crash). Raise a NameError if this is the case.
